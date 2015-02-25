@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<head>
+    
+    {% load staticfiles %}
+
+    <script src="{% static 'website/js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'website/js/pclock.js' %}"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+
+    <section class="content">
+    
+        <p> 
+            Current time: <span id="pclock"></span>
+        </p>
+
+        <p> 
+            Current minute last (in sec): <span id="min_last"></span>
+        </p>
+
+        <p> 
+            Current delta (in sec): <span id="delta"></span>
+        </p>
+
+    </section>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+
+</html>
+
