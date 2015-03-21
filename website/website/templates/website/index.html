@@ -5,7 +5,15 @@
     
     {% load staticfiles %}
 
+    <link rel="stylesheet" href="{% static 'website/generated/css/clock.css' %}" />
+
+    <script>
+        var ws_uri = "{{ WEBSOCKET_URI }}";
+        var ws_heartbeat = {{ WS4REDIS_HEARTBEAT }};
+    </script>
     <script src="{% static 'website/js/jquery-2.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/ws4redis.js"></script>
+    <script src="{% static 'website/js/ui.js' %}"></script>
     <script src="{% static 'website/js/pclock.js' %}"></script>
 
 </head>
@@ -16,20 +24,62 @@
 
     </header>
 
+    <div class="background" id="leftbg"></div>
+    <div class="background" id="rightbg"></div>
 
+    {% load modulus %}
+
+    <div id="title"><span class="left">P'CL</span><span class="right">OCK!</span></div>
+
+    <div id="watch">
+            <div id="hour">
+                    <div class="north"> {% next_modulo hour hour_lap %} </div>
+                    <div class="south"> {{ hour }} </div>
+            </div>
+            <div id="minute">
+                <div class="north"><div class="half left">{% quotient minute 10 %}</div><div class="half right">{% modulo minute 10 %}</div></div>
+                <div class="south"><div class="half left">{% prev_quotient minute 10 %}</div><div class="half right">{% prev_modulo minute 10 %}</div>
+                </div>
+            </div>
+            <div id="second">
+                    <div class="north"> {% next_modulo second second_lap %} </div>
+                    <div class="south"> {{ second }} </div>
+            </div>
+    </div>
+
+    <div id="info" class="box">
+        <div class="box-title">
+            INFOS
+        </div>
+        <p>
+            Current delta (in sec): <span id="delta">{{ delta }}</span>
+        </p>
+        <p>
+        </p>
+    </div>
+    <div id="about" class="box">
+        <div class="box-title">
+            ABOUT
+        </div>
+        <p>
+        P'clock is a non-deterministic clock, whose minutes last
+        between forty and eighty seconds. At the end of each minute, 
+        the laps of the next minute is randomly chosen.
+        </p>
+    </div>
     <section class="content">
-    
+        <span id="hour_lap" class="hidden">{{ hour_lap }}</span>
+        <span id="minute_lap" class="hidden">{{ minute_lap }}</span>
+        <span id="second_lap" class="hidden">{{ second_lap }}</span>
+        <p>    
+        O'clock: <span id="pclock">{{ oclock }}</span>
+        |
+        P'clock: <span id="pclock">{{ pclock }}</span>
+        </p>
         <p> 
-            Current time: <span id="pclock"></span>
         </p>
 
-        <p> 
-            Current minute last (in sec): <span id="min_last"></span>
-        </p>
-
-        <p> 
-            Current delta (in sec): <span id="delta"></span>
-        </p>
+    <input type="button" value="Click me" id="trigger" />
 
     </section>
 

@@ -1,0 +1,292 @@
+
+@import "colors.scss";
+
+@font-face {
+    font-family: neoteric;
+    src: url("../../font/test.ttf");
+}
+@font-face {
+    font-family: days;
+    src: url("../../font/36days.ttf");
+}
+
+$size: 400px;
+
+body {
+    font-family: neoteric;
+    font-variant: small-caps;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 4px;
+}
+
+.box {
+    position: fixed;
+    bottom: 10%;
+    width: 25%;
+    padding: 10px;
+    border-style: solid;
+
+    .box-title {
+        font-weight: bold;
+    }
+
+    p {
+        text-align: justify;
+        margin: 0px;
+        margin-top: 5px;
+    }
+
+    &#info {
+        left: 10%;
+        border-color: black;
+        border-width: 0px 0px 1px 1px;
+    }
+
+    &#about {
+        direction:rtl;
+        right: 10%;
+        border-color: white;
+        border-width: 0px 1px 1px 0px;
+        color: white;
+        text-align: right;
+    }
+}
+
+.background {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 50%;
+    &#leftbg {
+        left: 0px;
+        background-color: white;
+    }
+    &#rightbg {
+        right: 0px;
+        background-color: black;
+    }
+}
+
+#title {
+    width: 40%;
+    height: 10%;
+    position: fixed;
+    top: 15%;
+    left: 31%;
+    z-index: 8;
+    text-align: center;
+    font-size: 5em;
+    .left {
+        color: black;
+    }
+    .right {
+        color: white;
+    }
+}
+
+
+#watch {
+    font-weight: 200;
+    font-size: 3em;
+    z-index: 1;
+    width: 40%;
+    height: 30%;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    text-align: center;
+}
+.hrotation {
+        -webkit-transform: rotateY(180deg);
+           -moz-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+}
+
+.vrotation {
+        -webkit-transform: rotateX(-180deg);
+           -moz-transform: rotateX(-180deg);
+                transform: rotateX(-180deg);
+}
+
+#hour, #minute, #second {
+
+    margin: 10px;
+    display: inline-block;
+
+    $size: 160px;
+        
+    height: $size;
+    width: $size;
+
+    .half {
+        display: inline-block; 
+        width: 50%;
+        height: 100%;
+        &.right {
+            background-color: white;
+            border-radius: 0px $size $size 0px;
+            text-align: left;
+        }
+        &.left {
+            background-color: black;
+            color: white;
+            border-radius: $size 0px 0px $size;
+            text-align: right;
+        }
+    }
+    position: relative;
+
+    -webkit-perspective: 1000;
+       -moz-perspective: 1000;
+            perspective: 1000;
+
+    .north, .south {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        height: $size;
+        width: $size;
+
+        line-height: $size;
+        text-align: center;
+
+        border-radius: $size;
+
+        -webkit-backface-visibility: hidden;
+           -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+    }
+
+    .north {
+        z-index: 3;
+    }
+
+    &#hour {
+        .north, .south {
+            background-color: black;
+            color: white;
+        }
+    }
+
+    &#minute {
+        .north, .south {
+            background-color: red;
+        }
+    }
+
+    &#second {
+        .north, .south {
+            background-color: white;
+        }
+    }
+
+    .south {
+        z-index: 2;
+    }
+
+/*
+    .hcontainer .south {
+        z-index: 1;
+        -webkit-transform: rotateY(180deg);
+           -moz-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        -webkit-backface-visibility: hidden;
+           -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+    }
+
+    .vcontainer .south {
+        z-index: 1;
+        -webkit-transform: rotateX(180deg);
+           -moz-transform: rotateX(180deg);
+                transform: rotateX(180deg);
+        -webkit-backface-visibility: hidden;
+           -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+    }
+  */  
+
+
+    @-webkit-keyframes h_spin_one {
+        0% {
+            -webkit-transform: rotateY(0deg);
+               -moz-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+        }
+        100% {
+            -webkit-transform: rotateY(-180deg);
+               -moz-transform: rotateY(-180deg);
+                    transform: rotateY(-180deg);
+        }
+    }
+    
+    @-webkit-keyframes h_spin_two {
+        0% {
+            -webkit-transform: rotateY(-180deg);
+               -moz-transform: rotateY(-180deg);
+                    transform: rotateY(-180deg);
+        }
+        100% {
+            -webkit-transform: rotateY(-360deg);
+               -moz-transform: rotateY(-360deg);
+                    transform: rotateY(-360deg);
+        }
+    }
+
+    @-webkit-keyframes v_spin_one {
+        0% {
+            -webkit-transform: rotateX(0deg);
+               -moz-transform: rotateX(0deg);
+                    transform: rotateX(0deg);
+        }
+        100% {
+            -webkit-transform: rotateX(180deg);
+               -moz-transform: rotateX(180deg);
+                    transform: rotateX(180deg);
+        }
+    }
+    
+    @-webkit-keyframes v_spin_two {
+        0% {
+            -webkit-transform: rotateX(180deg);
+               -moz-transform: rotateX(180deg);
+                    transform: rotateX(180deg);
+        }
+        100% {
+            -webkit-transform: rotateX(360deg);
+               -moz-transform: rotateX(360deg);
+                    transform: rotateX(360deg);
+        }
+    }
+
+    .north_step_one {
+        -webkit-animation: h_spin_one 0.5s forwards; 
+           -moz-animation: h_spin_one 0.5s forwards; 
+                animation: h_spin_one 0.5s forwards; 
+    }
+
+    .south_step_one {
+        -webkit-animation: h_spin_two 0.5s forwards;
+           -moz-animation: h_spin_two 0.5s forwards;
+                animation: h_spin_two 0.5s forwards;
+    }
+
+    .south_step_two {
+        -webkit-animation: v_spin_one 0.5s forwards; 
+           -moz-animation: v_spin_one 0.5s forwards; 
+                animation: v_spin_one 0.5s forwards; 
+    }
+
+    .north_step_two {
+        -webkit-animation: v_spin_two 0.5s forwards;
+           -moz-animation: v_spin_two 0.5s forwards;
+                animation: v_spin_two 0.5s forwards;
+    }
+}
+

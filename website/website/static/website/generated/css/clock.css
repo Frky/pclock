@@ -1,0 +1,279 @@
+/* Flat UI colors */
+@font-face {
+  font-family: neoteric;
+  src: url("../../font/test.ttf");
+}
+@font-face {
+  font-family: days;
+  src: url("../../font/36days.ttf");
+}
+/* line 15, ../../scss/clock.scss */
+body {
+  font-family: neoteric;
+  font-variant: small-caps;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 4px;
+}
+
+/* line 26, ../../scss/clock.scss */
+.box {
+  position: fixed;
+  bottom: 10%;
+  width: 25%;
+  padding: 10px;
+  border-style: solid;
+}
+/* line 33, ../../scss/clock.scss */
+.box .box-title {
+  font-weight: bold;
+}
+/* line 37, ../../scss/clock.scss */
+.box p {
+  text-align: justify;
+  margin: 0px;
+  margin-top: 5px;
+}
+/* line 43, ../../scss/clock.scss */
+.box#info {
+  left: 10%;
+  border-color: black;
+  border-width: 0px 0px 1px 1px;
+}
+/* line 49, ../../scss/clock.scss */
+.box#about {
+  direction: rtl;
+  right: 10%;
+  border-color: white;
+  border-width: 0px 1px 1px 0px;
+  color: white;
+  text-align: right;
+}
+
+/* line 59, ../../scss/clock.scss */
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+/* line 65, ../../scss/clock.scss */
+.background#leftbg {
+  left: 0px;
+  background-color: white;
+}
+/* line 69, ../../scss/clock.scss */
+.background#rightbg {
+  right: 0px;
+  background-color: black;
+}
+
+/* line 75, ../../scss/clock.scss */
+#title {
+  width: 40%;
+  height: 10%;
+  position: fixed;
+  top: 15%;
+  left: 31%;
+  z-index: 8;
+  text-align: center;
+  font-size: 5em;
+}
+/* line 84, ../../scss/clock.scss */
+#title .left {
+  color: black;
+}
+/* line 87, ../../scss/clock.scss */
+#title .right {
+  color: white;
+}
+
+/* line 93, ../../scss/clock.scss */
+#watch {
+  font-weight: 200;
+  font-size: 3em;
+  z-index: 1;
+  width: 40%;
+  height: 30%;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  text-align: center;
+}
+
+/* line 104, ../../scss/clock.scss */
+.hrotation {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* line 110, ../../scss/clock.scss */
+.vrotation {
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+/* line 116, ../../scss/clock.scss */
+#hour, #minute, #second {
+  margin: 10px;
+  display: inline-block;
+  height: 160px;
+  width: 160px;
+  position: relative;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+  /*
+      .hcontainer .south {
+          z-index: 1;
+          -webkit-transform: rotateY(180deg);
+             -moz-transform: rotateY(180deg);
+                  transform: rotateY(180deg);
+          -webkit-backface-visibility: hidden;
+             -moz-backface-visibility: hidden;
+                  backface-visibility: hidden;
+      }
+  
+      .vcontainer .south {
+          z-index: 1;
+          -webkit-transform: rotateX(180deg);
+             -moz-transform: rotateX(180deg);
+                  transform: rotateX(180deg);
+          -webkit-backface-visibility: hidden;
+             -moz-backface-visibility: hidden;
+                  backface-visibility: hidden;
+      }
+    */
+}
+/* line 126, ../../scss/clock.scss */
+#hour .half, #minute .half, #second .half {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+}
+/* line 130, ../../scss/clock.scss */
+#hour .half.right, #minute .half.right, #second .half.right {
+  background-color: white;
+  border-radius: 0px 160px 160px 0px;
+  text-align: left;
+}
+/* line 135, ../../scss/clock.scss */
+#hour .half.left, #minute .half.left, #second .half.left {
+  background-color: black;
+  color: white;
+  border-radius: 160px 0px 0px 160px;
+  text-align: right;
+}
+/* line 148, ../../scss/clock.scss */
+#hour .north, #hour .south, #minute .north, #minute .south, #second .north, #second .south {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 160px;
+  width: 160px;
+  line-height: 160px;
+  text-align: center;
+  border-radius: 160px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 166, ../../scss/clock.scss */
+#hour .north, #minute .north, #second .north {
+  z-index: 3;
+}
+/* line 171, ../../scss/clock.scss */
+#hour#hour .north, #hour#hour .south, #minute#hour .north, #minute#hour .south, #second#hour .north, #second#hour .south {
+  background-color: black;
+  color: white;
+}
+/* line 178, ../../scss/clock.scss */
+#hour#minute .north, #hour#minute .south, #minute#minute .north, #minute#minute .south, #second#minute .north, #second#minute .south {
+  background-color: red;
+}
+/* line 184, ../../scss/clock.scss */
+#hour#second .north, #hour#second .south, #minute#second .north, #minute#second .south, #second#second .north, #second#second .south {
+  background-color: white;
+}
+/* line 189, ../../scss/clock.scss */
+#hour .south, #minute .south, #second .south {
+  z-index: 2;
+}
+@-webkit-keyframes h_spin_one {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+}
+@-webkit-keyframes h_spin_two {
+  0% {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(-360deg);
+    -moz-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+@-webkit-keyframes v_spin_one {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+}
+@-webkit-keyframes v_spin_two {
+  0% {
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+/* line 268, ../../scss/clock.scss */
+#hour .north_step_one, #minute .north_step_one, #second .north_step_one {
+  -webkit-animation: h_spin_one 0.5s forwards;
+  -moz-animation: h_spin_one 0.5s forwards;
+  animation: h_spin_one 0.5s forwards;
+}
+/* line 274, ../../scss/clock.scss */
+#hour .south_step_one, #minute .south_step_one, #second .south_step_one {
+  -webkit-animation: h_spin_two 0.5s forwards;
+  -moz-animation: h_spin_two 0.5s forwards;
+  animation: h_spin_two 0.5s forwards;
+}
+/* line 280, ../../scss/clock.scss */
+#hour .south_step_two, #minute .south_step_two, #second .south_step_two {
+  -webkit-animation: v_spin_one 0.5s forwards;
+  -moz-animation: v_spin_one 0.5s forwards;
+  animation: v_spin_one 0.5s forwards;
+}
+/* line 286, ../../scss/clock.scss */
+#hour .north_step_two, #minute .north_step_two, #second .north_step_two {
+  -webkit-animation: v_spin_two 0.5s forwards;
+  -moz-animation: v_spin_two 0.5s forwards;
+  animation: v_spin_two 0.5s forwards;
+}
