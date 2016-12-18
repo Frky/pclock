@@ -1,5 +1,4 @@
-from clock import Clock
+from uniformpclock import UniformPClock
 
-
-cl = Clock()
-cl.new_minute()
+cl = UniformPClock(-20, 20)
+print cl.new_pminute()
