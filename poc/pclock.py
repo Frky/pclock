@@ -17,7 +17,7 @@ class PClock(object):
 
     @abc.abstractmethod
     def shift_gen(self):
-        """Generates a new shift from real time"""
+        """Generates a new shift from the duration of a real minute"""
         pass
 
     def distrib_name(self):
