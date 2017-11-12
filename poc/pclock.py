@@ -28,6 +28,8 @@ class PClock(object):
         """Generates a new pminute and schedules the next call for when the pminute ends"""
         self.printpc()
         new_shift = self.shift_gen()
+        if new_shift*self.delta > 0:
+            new_shift = -new_shift
         print "New minute elapsed. Next minute will last {0} seconds.".format(60 + new_shift)
         self.delta += new_shift
         self.sch.enter(60 + new_shift, 1, self.new_pminute, ())
